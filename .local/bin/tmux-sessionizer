@@ -5,14 +5,20 @@
 if [[ $# -eq 1 ]]; then
   selected=$1
 else
-  selected=$(find ~/Documents ~/Developer ~/ -mindepth 1 -maxdepth 2 -type d | fzf)
+  selected=$(find ~/Documents ~/Developer ~/ -mindepth 1 -maxdepth 5 -type d | fzf)
 fi
 
 if [[ -z $selected ]]; then
   exit 0
 fi
 
-selected_name=$(basename "$selected" | tr . _)
+absolute_path=$(cd "$selected" 2>/dev/null && pwd)
+if [[ -z $absolute_path ]]; then
+  echo "Error: Invalid directory path"
+  exit 1
+fi
+
+selected_name=$(basename "$absolute_path" | tr . _)
 tmux_running=$(pgrep tmux)
 
 # OK - tmux is not running

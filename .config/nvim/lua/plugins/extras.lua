@@ -70,30 +70,4 @@ return {
       },
     },
   },
-
-  -- undotree telescope
-  {
-    "debugloop/telescope-undo.nvim",
-    dependencies = {
-      {
-        "nvim-telescope/telescope.nvim",
-        dependencies = { "nvim-lua/plenary.nvim" },
-      },
-    },
-    keys = {
-      { "<leader>fu", "<cmd>Telescope undo<cr>", desc = "Undo History" },
-    },
-  },
-  opts = {
-    extensions = {
-      undo = {
-        -- telescope-undo.nvim config
-      },
-    },
-  },
-  config = function(_, opts)
-    -- calling telescope's setup from multiple specs doesn't hurt
-    require("telescope").setup(opts)
-    require("telescope").load_extension("undo")
-  end,
 }

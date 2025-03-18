@@ -7,6 +7,14 @@ return {
     -- use opts = {} for passing setup options
   },
 
+  -- use classic view with which-key instead of helix
+  {
+    "folke/which-key.nvim",
+    opts = {
+      preset = "classic",
+    },
+  },
+
   -- changing behavior of cmp scrolling
   {
     "hrsh7th/nvim-cmp",

@@ -13,3 +13,6 @@ window-padding-y = 10
 confirm-close-surface = false
 
 mouse-shift-capture = false
+
+# include local config, if exists
+config-file = ?config.local

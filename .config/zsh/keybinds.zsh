@@ -21,6 +21,9 @@ bindkey '^[[3;5~' vi-kill-eol
 # bindkey '' backward-kill-word Already bound to ?
 bindkey '^[[3;3~' kill-word
 
+# accept completions with <Ctrl> + y
+bindkey '^Y' autosuggest-accept
+
 # <Ctrl> + <Z> to toggle current process (background/foreground)
 fancy-ctrl-z () {
   if [[ $#BUFFER -eq 0 ]]; then

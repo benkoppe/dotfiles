@@ -68,8 +68,9 @@ fi
 DISABLE_AUTO_UPDATE=true
 
 export ZGENOM_DIR=~/.zgenom
-export ZGENOM_SOURCE=~/.zgenom/zgenom.zsh
-export ZDOTDIR=~/.config/zsh
+export ZGENOM_SOURCE=$ZGENOM_DIR/zgenom.zsh
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+export ZSH_CACHE="$XDG_CACHE_HOME/zsh"
 
 if [ ! -d "$ZGENOM_DIR" ]; then
 	if nc -zw1 ifconfig.me 443; then

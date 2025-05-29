@@ -30,5 +30,6 @@ alias l="ls -1 -g"
 alias python="python3"
 alias tmux-s="tmux-sessionizer"
 alias ts="tmux-sessionizer"
+alias ffch="fastfetch"
 
 autoload -U zmv

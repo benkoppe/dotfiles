@@ -85,6 +85,10 @@ export ZSH_TAB_TITLE_DEFAULT_DIABLE_PREFIX=true
 export ZSH_TAB_TITLE_ONLY_FOLDER=true
 export ZSH_TAB_TITLE_CONCAT_FOLDER_PROCESS=true
 
+# load compinit so autocompletion works well
+autoload -Uz compinit && compinit -u -d $ZSH_CACHE/zcompdump
+
+
 source $ZGENOM_SOURCE
 if ! zgenom saved; then
 	echo "Initializing zgenom"
@@ -171,9 +175,7 @@ if [[ $TERM != dumb ]]; then
     export FZF_CTRL_H_COMMAND="fd -t d . $HOME"
   fi
 
-  # load compinit so autocompletion works well
-  autoload -Uz compinit && compinit -u -d $ZSH_CACHE/zcompdump
-
+  
   # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
   [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 fi

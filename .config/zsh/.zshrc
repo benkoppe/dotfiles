@@ -43,7 +43,8 @@ for path_candidate in /Applications/Xcode.app/Contents/Developer/usr/bin \
   ~/.rbenv/bin \
   ~/src/gocode/bin \
   ~/gocode \
-  ~/.local/share/pnpm
+  ~/.local/share/pnpm \
+  ~/.local/bin
 do
   if [[ -d "${path_candidate}" ]]; then
     path+=("${path_candidate}")
@@ -176,8 +177,6 @@ if [[ $TERM != dumb ]]; then
   [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 fi
 
-# add ~/.local/bin to path
-source "$HOME/.local/bin/env"
 
 # source host-local configuration
 [ -f ~/.zshrc ] && source ~/.zshrc

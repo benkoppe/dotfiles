@@ -153,10 +153,7 @@ fi
 
 source $ZDOTDIR/config.zsh
 if [[ $TERM != dumb ]]; then
-  source $ZDOTDIR/keybinds.zsh
-  source $ZDOTDIR/completion.zsh
-  source $ZDOTDIR/aliases.zsh
-
+  
   function _cache {
     command -v "$1" >/dev/null || return 1
     local cache_dir="$XDG_CACHE_HOME/${SHELL##*/}"
@@ -178,8 +175,11 @@ if [[ $TERM != dumb ]]; then
   
   # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
   [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
-fi
 
+  source $ZDOTDIR/keybinds.zsh
+  source $ZDOTDIR/completion.zsh
+  source $ZDOTDIR/aliases.zsh
+fi
 
 # source host-local configuration
 [ -f ~/.zshrc ] && source ~/.zshrc

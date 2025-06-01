@@ -98,7 +98,7 @@ if ! zgenom saved; then
 	zgenom load unixorn/jpb.zshplugi
 
 	# Ohmyzsh base library
-	# zgenom ohmyzsh
+	zgenom ohmyzsh
 
 	# Ohmyzsh plugins
 	zgenom ohmyzsh plugins/git

@@ -1,21 +1,7 @@
-fastfetch
-
 if [ `tput colors` != "256" ]; then
 	exec bash -l;
 	return
 fi
-
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-# Check if a command exists
-function can_haz() {
-  which "$@" > /dev/null 2>&1
-}
 
 # XDG config home
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -53,6 +39,14 @@ done
 export PATH
 # We will dedupe PATH at the end.
 
+
+fastfetch
+
+# Check if a command exists
+function can_haz() {
+  which "$@" > /dev/null 2>&1
+}
+
 # Deal with brew if it's installed.
 if can_haz brew; then
   BREW_PREFIX=$(brew --prefix)
@@ -62,6 +56,13 @@ if can_haz brew; then
   if [[ -d "${BREW_PREFIX}/sbin" ]]; then
     export PATH="$PATH:${BREW_PREFIX}/sbin"
   fi
+fi
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 # Disable Oh-My_ZSH's internal updating
@@ -153,7 +154,7 @@ fi
 
 source $ZDOTDIR/config.zsh
 if [[ $TERM != dumb ]]; then
-  
+
   function _cache {
     command -v "$1" >/dev/null || return 1
     local cache_dir="$XDG_CACHE_HOME/${SHELL##*/}"
@@ -172,7 +173,6 @@ if [[ $TERM != dumb ]]; then
     export FZF_CTRL_H_COMMAND="fd -t d . $HOME"
   fi
 
-  
   # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
   [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 

@@ -7,6 +7,7 @@ fi
 export XDG_CONFIG_HOME="$HOME/.config"
 # XDG cache home
 export XDG_CACHE_HOME="$HOME/.cache"
+
 # Base PATH
 PATH="$PATH:/sbin:/usr/sbin:/bin:/usr/bin"
 
@@ -105,6 +106,9 @@ if ! zgenom saved; then
 	# Install ohmyzsh osx plugin if on macOS
 	[[ $(uname -a | grep -ci Darwin) = 1 ]] && zgenom ohmyzsh plugins/macos
 	(( $+commands[brew] )) && zgenom ohmyzsh plugins/brew
+
+  # fzf-tab
+  zgenom load Aloxaf/fzf-tab
 
 	# If zsh-syntax-highlighting is bundled after zsh-history-substring-search,
   	# they break, so get the order right.

@@ -25,6 +25,7 @@ alias scan="sudo nmap -sn 192.168.8.0/24 | sed -e 's#.*for \(\)#\1#' | sed '/^Ho
 alias ducks="sudo du -cks -- * | sort -rn | head"
 
 alias ls="ls --color=auto --hyperlink=auto"
+alias ll="ls -lh"
 alias l="ls -1 -g"
 
 alias python="python3"

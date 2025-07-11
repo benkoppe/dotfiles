@@ -40,8 +40,10 @@ done
 export PATH
 # We will dedupe PATH at the end.
 
-
-fastfetch
+# display fastfetch if not in a PTY
+if [[ $(tty) == *"pts"* ]]; then
+    fastfetch --config examples/13
+fi
 
 # Check if a command exists
 function can_haz() {

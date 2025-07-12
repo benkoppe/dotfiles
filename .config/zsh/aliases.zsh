@@ -33,4 +33,7 @@ alias tmux-s="tmux-sessionizer"
 alias ts="tmux-sessionizer"
 alias ff="fastfetch"
 
+# linux helpers
+alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
+
 autoload -U zmv

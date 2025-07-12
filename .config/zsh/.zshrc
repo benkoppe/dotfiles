@@ -105,9 +105,20 @@ if ! zgenom saved; then
 
 	# Ohmyzsh plugins
 	zgenom ohmyzsh plugins/git
+  zgenom ohmyzsh plugins/ssh-agent
 	# Install ohmyzsh osx plugin if on macOS
 	[[ $(uname -a | grep -ci Darwin) = 1 ]] && zgenom ohmyzsh plugins/macos
 	(( $+commands[brew] )) && zgenom ohmyzsh plugins/brew
+
+  # Commands if on linux with indicated os-release
+  if [[ -f /etc/os-release ]]; then
+    source /etc/os-release
+
+    # Install arch plugin if on arch
+    if [[ "$ID" == "arch" || "$ID_LIKE" == *"arch"* ]]; then
+      zgenom ohmyzsh plugins/archlinux
+    fi
+  fi
 
   # fzf-tab
   zgenom load Aloxaf/fzf-tab
@@ -185,6 +196,8 @@ if [[ $TERM != dumb ]]; then
   source $ZDOTDIR/keybinds.zsh
   source $ZDOTDIR/completion.zsh
   source $ZDOTDIR/aliases.zsh
+
+
 fi
 
 # source host-local configuration

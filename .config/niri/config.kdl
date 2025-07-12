@@ -255,7 +255,7 @@ layout {
 // See the binds section below for more spawn examples.
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
-spawn-at-startup "waybar"
+// spawn-at-startup "waybar"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
@@ -342,6 +342,7 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
+    Mod+B hotkey-overlay-title="Open a Browser: brave" { spawn "brave"; }
     Mod+Space hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
@@ -372,14 +373,14 @@ binds {
     Mod+K     { focus-window-up; }
     Mod+L     { focus-column-right; }
 
-    Mod+Ctrl+Left  { move-column-left; }
-    Mod+Ctrl+Down  { move-window-down; }
-    Mod+Ctrl+Up    { move-window-up; }
-    Mod+Ctrl+Right { move-column-right; }
-    Mod+Ctrl+H     { move-column-left; }
-    Mod+Ctrl+J     { move-window-down; }
-    Mod+Ctrl+K     { move-window-up; }
-    Mod+Ctrl+L     { move-column-right; }
+    Mod+Shift+Left  { move-column-left; }
+    Mod+Shift+Down  { move-window-down; }
+    Mod+Shift+Up    { move-window-up; }
+    Mod+Shift+Right { move-column-right; }
+    Mod+Shift+H     { move-column-left; }
+    Mod+Shift+J     { move-window-down; }
+    Mod+Shift+K     { move-window-up; }
+    Mod+Shift+L     { move-column-right; }
 
     // Alternative commands that move across workspaces when reaching
     // the first or last window in a column.
@@ -393,14 +394,14 @@ binds {
     Mod+Ctrl+Home { move-column-to-first; }
     Mod+Ctrl+End  { move-column-to-last; }
 
-    Mod+Shift+Left  { focus-monitor-left; }
-    Mod+Shift+Down  { focus-monitor-down; }
-    Mod+Shift+Up    { focus-monitor-up; }
-    Mod+Shift+Right { focus-monitor-right; }
-    Mod+Shift+H     { focus-monitor-left; }
-    Mod+Shift+J     { focus-monitor-down; }
-    Mod+Shift+K     { focus-monitor-up; }
-    Mod+Shift+L     { focus-monitor-right; }
+    Mod+Ctrl+Left  { focus-monitor-left; }
+    Mod+Ctrl+Down  { focus-monitor-down; }
+    Mod+Ctrl+Up    { focus-monitor-up; }
+    Mod+Ctrl+Right { focus-monitor-right; }
+    Mod+Ctrl+H     { focus-monitor-left; }
+    Mod+Ctrl+J     { focus-monitor-down; }
+    Mod+Ctrl+K     { focus-monitor-up; }
+    Mod+Ctrl+L     { focus-monitor-right; }
 
     Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
     Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
@@ -423,19 +424,19 @@ binds {
     Mod+Page_Up        { focus-workspace-up; }
     Mod+U              { focus-workspace-down; }
     Mod+I              { focus-workspace-up; }
-    Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
-    Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
-    Mod+Ctrl+U         { move-column-to-workspace-down; }
-    Mod+Ctrl+I         { move-column-to-workspace-up; }
+    Mod+Shift+Page_Down { move-column-to-workspace-down; }
+    Mod+Shift+Page_Up   { move-column-to-workspace-up; }
+    Mod+Shift+U         { move-column-to-workspace-down; }
+    Mod+Shift+I         { move-column-to-workspace-up; }
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Ctrl+Page_Down { move-window-to-workspace-down; }
     // ...
 
-    Mod+Shift+Page_Down { move-workspace-down; }
-    Mod+Shift+Page_Up   { move-workspace-up; }
-    Mod+Shift+U         { move-workspace-down; }
-    Mod+Shift+I         { move-workspace-up; }
+    Mod+Ctrl+Page_Down { move-workspace-down; }
+    Mod+Ctrl+Page_Up   { move-workspace-up; }
+    Mod+Ctrl+U         { move-workspace-down; }
+    Mod+Ctrl+I         { move-workspace-up; }
 
     // You can bind mouse wheel scroll ticks using the following syntax.
     // These binds will change direction based on the natural-scroll setting.
@@ -486,15 +487,15 @@ binds {
     Mod+7 { focus-workspace 7; }
     Mod+8 { focus-workspace 8; }
     Mod+9 { focus-workspace 9; }
-    Mod+Ctrl+1 { move-column-to-workspace 1; }
-    Mod+Ctrl+2 { move-column-to-workspace 2; }
-    Mod+Ctrl+3 { move-column-to-workspace 3; }
-    Mod+Ctrl+4 { move-column-to-workspace 4; }
-    Mod+Ctrl+5 { move-column-to-workspace 5; }
-    Mod+Ctrl+6 { move-column-to-workspace 6; }
-    Mod+Ctrl+7 { move-column-to-workspace 7; }
-    Mod+Ctrl+8 { move-column-to-workspace 8; }
-    Mod+Ctrl+9 { move-column-to-workspace 9; }
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
+    Mod+Shift+6 { move-column-to-workspace 6; }
+    Mod+Shift+7 { move-column-to-workspace 7; }
+    Mod+Shift+8 { move-column-to-workspace 8; }
+    Mod+Shift+9 { move-column-to-workspace 9; }
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Ctrl+1 { move-window-to-workspace 1; }
@@ -507,6 +508,8 @@ binds {
     // If the window is already in a column, they will expel it out.
     Mod+BracketLeft  { consume-or-expel-window-left; }
     Mod+BracketRight { consume-or-expel-window-right; }
+    Mod+N { consume-or-expel-window-left; }
+    Mod+M { consume-or-expel-window-right; }
 
     // Consume one window from the right to the bottom of the focused column.
     Mod+Comma  { consume-window-into-column; }
@@ -550,7 +553,7 @@ binds {
     // Toggle tabbed column display mode.
     // Windows in this column will appear as vertical tabs,
     // rather than stacked on top of each other.
-    Mod+W { toggle-column-tabbed-display; }
+    Mod+T { toggle-column-tabbed-display; }
 
     // Actions to switch layouts.
     // Note: if you uncomment these, make sure you do NOT have
@@ -577,6 +580,7 @@ binds {
     // The quit action will show a confirmation dialog to avoid accidental exits.
     Mod+Shift+E { quit; }
     Ctrl+Alt+Delete { quit; }
+    Mod+Alt+Delete { quit; }
 
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.

@@ -106,6 +106,7 @@ if ! zgenom saved; then
 	# Ohmyzsh plugins
 	zgenom ohmyzsh plugins/git
   zgenom ohmyzsh plugins/ssh-agent
+  zgenom ohmyzsh plugins/colored-man-pages
 	# Install ohmyzsh osx plugin if on macOS
 	[[ $(uname -a | grep -ci Darwin) = 1 ]] && zgenom ohmyzsh plugins/macos
 	(( $+commands[brew] )) && zgenom ohmyzsh plugins/brew

@@ -1,0 +1,136 @@
+{
+    "profiles": [
+        {
+            "complex_modifications": {
+                "rules": [
+                    {
+                        "description": "Caps Lock → Control (esc if alone) & Control → Hyper",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "caps_lock",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "key_code": "left_control" }],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "escape",
+                                        "lazy": true
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": { "key_code": "left_control" },
+                                "to": [
+                                    {
+                                        "key_code": "left_shift",
+                                        "lazy": true,
+                                        "modifiers": ["left_command", "left_control", "left_option"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Question answer rule",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "slash",
+                                    "modifiers": { "mandatory": ["right_command"] }
+                                },
+                                "to": [{ "shell_command": "/opt/homebrew/bin/python3 '/Users/ben/Documents/Other/question/question_answer.py'" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "F1 F2 Illumination",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "f1",
+                                    "modifiers": { "mandatory": ["command"] }
+                                },
+                                "to": [{ "key_code": "illumination_decrement" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "f2",
+                                    "modifiers": { "mandatory": ["command"] }
+                                },
+                                "to": [{ "key_code": "illumination_increment" }],
+                                "type": "basic"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "devices": [
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 50484,
+                        "vendor_id": 1133
+                    },
+                    "simple_modifications": [
+                        {
+                            "from": { "consumer_key_code": "al_calculator" },
+                            "to": [{ "consumer_key_code": "al_terminal_lock_or_screensaver" }]
+                        },
+                        {
+                            "from": { "key_code": "application" },
+                            "to": [{ "key_code": "right_command" }]
+                        }
+                    ]
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": true,
+                        "product_id": 865,
+                        "vendor_id": 13364
+                    },
+                    "ignore": false,
+                    "treat_as_built_in_keyboard": true
+                },
+                {
+                    "identifiers": {
+                        "is_pointing_device": true,
+                        "product_id": 138,
+                        "vendor_id": 5426
+                    },
+                    "ignore": false,
+                    "mouse_flip_vertical_wheel": true
+                }
+            ],
+            "fn_function_keys": [
+                {
+                    "from": { "key_code": "f3" },
+                    "to": [{ "apple_vendor_keyboard_key_code": "launchpad" }]
+                },
+                {
+                    "from": { "key_code": "f4" },
+                    "to": [{ "key_code": "f14" }]
+                },
+                {
+                    "from": { "key_code": "f5" },
+                    "to": [{ "key_code": "f15" }]
+                },
+                {
+                    "from": { "key_code": "f6" },
+                    "to": [{ "key_code": "f16" }]
+                }
+            ],
+            "name": "Default",
+            "selected": true,
+            "virtual_hid_keyboard": {
+                "country_code": 0,
+                "keyboard_type_v2": "ansi"
+            }
+        }
+    ]
+}

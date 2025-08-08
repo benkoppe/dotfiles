@@ -1,0 +1,91 @@
+{
+    "title": "Toggle left click with function key",
+    "rules": [
+        {
+            "description": "Toggle left click on/off with function key",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "f4"
+                    },
+                    "to": [
+                        {
+                            "select": {
+                                "key": "button1",
+                                "when": "pointing_device",
+                                "on": [
+                                    {
+                                        "pointing_button": "button1"
+                                    }
+                                ],
+                                "off": [
+                                    {
+                                        "set_variable": {
+                                            "name": "custom_left_click",
+                                            "value": 0
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "name": "custom_left_click",
+                            "type": "variable_if",
+                            "value": 0
+                        }
+                    ],
+                    "parameters": {
+                        "basic.to_if_alone_timeout_milliseconds": 1000
+                    }
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "f4"
+                    },
+                    "to": [
+                        {
+                            "pointing_button": "button1",
+                            "type": "button_down"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "name": "custom_left_click",
+                            "type": "variable_if",
+                            "value": 1
+                        }
+                    ],
+                    "parameters": {
+                        "basic.to_if_alone_timeout_milliseconds": 1000
+                    }
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "f4"
+                    },
+                    "to": [
+                        {
+                            "pointing_button": "button1",
+                            "type": "button_up"
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "name": "custom_left_click",
+                            "type": "variable_if",
+                            "value": 1
+                        }
+                    ],
+                    "parameters": {
+                        "basic.to_if_alone_timeout_milliseconds": 1000
+                    }
+                }
+            ]
+        }
+    ]
+}

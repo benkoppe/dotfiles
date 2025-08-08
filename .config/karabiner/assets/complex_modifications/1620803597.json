@@ -1,0 +1,1 @@
+{"title":"F6 Bluetooth","rules":[{"description":"F6 Bluetooth","manipulators":[{"type":"basic","from":{"key_code":"f6"},"to_if_alone":[{"repeat":false,"shell_command":"/opt/homebrew/Cellar/blueutil/2.8.0/bin/blueutil -p toggle"}],"to_if_held_down":[{"repeat":false,"shell_command":"osascript ~/Documents/Shell/RunAirPod.scpt"}]}]}]}
